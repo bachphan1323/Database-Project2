@@ -27,11 +27,11 @@ public class PurchaseItemDAO {
 
         try (Connection conn = DBConnection.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, 1);
-            pstmt.setInt(2, 2); // e.g., 2 items purchased
+            pstmt.setInt(2, 2); 
             pstmt.executeUpdate();
 
             pstmt.setInt(1, 2);
-            pstmt.setInt(2, 5); // e.g., 5 items purchased
+            pstmt.setInt(2, 5); 
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class PurchaseItemDAO {
             while (rs.next()) {
                 items.add(new PurchaseItem(
                     rs.getInt("purchase_itemID"),
-                    rs.getInt("quantity")
+                    rs.getInt("quantity"), 0
                 ));
             }
 
