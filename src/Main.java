@@ -42,8 +42,9 @@ public class Main {
         List<Purchase> purchases = purchaseDAO.getAllPurchases();
         System.out.println("\n--- Purchases ---");
         for (Purchase p : purchases) {
-            System.out.printf("ID: %d | Date: %s | Total: %.2f",
-                p.getPurchaseID(), p.getPurchase_date(), p.getTotalPrice());
+           System.out.printf("ID: %d | Date: %s | Total: %.2f%n",
+           p.getPurchaseID(), p.getPurchase_date(), p.getTotalPrice());
+
         }
 
         System.out.println("\n--- Products ---");
@@ -54,9 +55,11 @@ public class Main {
         }
 
         System.out.println("\n--- Purchase Items ---");
-        List<PurchaseItem> items = purchaseItemDAO.getAllPurchaseItems();
-        for (PurchaseItem item : items) {
-            System.out.printf("Item ID: %d | Quantity: %d%n", item.getPurchase_itemID(), item.getQuantity());
-        }
+            List<PurchaseItem> items = purchaseItemDAO.getAllPurchaseItems();
+            for (PurchaseItem item : items) {
+                System.out.printf("Purchase ID: %d | Product ID: %d | Quantity: %d%n",
+                    item.getPurchase_itemID(), item.getProduct_itemID(), item.getQuantity());
+            }
+
     }
 }
